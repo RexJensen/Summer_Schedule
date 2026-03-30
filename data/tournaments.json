@@ -1,0 +1,83 @@
+[
+  {
+    "id": "wsop-001",
+    "series": "WSOP",
+    "venue": "Horseshoe / Paris",
+    "title": "Mystery Millions",
+    "date": "2026-05-27",
+    "time": "11:00",
+    "buyIn": 1000,
+    "game": "NLH",
+    "tags": [
+      "Huge field",
+      "Good for volume"
+    ],
+    "notes": "Flight A",
+    "flights": "A / B / C / D",
+    "url": "https://www.wsop.com/"
+  },
+  {
+    "id": "wynn-001",
+    "series": "Wynn Summer Classic",
+    "venue": "Wynn Las Vegas",
+    "title": "No-Limit Hold'em Championship",
+    "date": "2026-06-12",
+    "time": "12:00",
+    "buyIn": 1600,
+    "game": "NLH",
+    "tags": [
+      "Nice structure"
+    ],
+    "notes": "Day 1A",
+    "flights": "1A / 1B / 1C",
+    "url": "https://www.wynnlasvegas.com/"
+  },
+  {
+    "id": "wsop-002",
+    "series": "WSOP",
+    "venue": "Horseshoe / Paris",
+    "title": "Monster Stack",
+    "date": "2026-06-15",
+    "time": "10:00",
+    "buyIn": 1500,
+    "game": "NLH",
+    "tags": [
+      "Soft",
+      "Multi-flight"
+    ],
+    "notes": "Flight 1A",
+    "flights": "1A / 1B / 1C / 1D",
+    "url": "https://www.wsop.com/"
+  },
+  {
+    "id": "wynn-002",
+    "series": "Wynn Summer Classic",
+    "venue": "Wynn Las Vegas",
+    "title": "$600 NLH",
+    "date": "2026-06-15",
+    "time": "13:00",
+    "buyIn": 600,
+    "game": "NLH",
+    "tags": [
+      "Daily",
+      "Fallback option"
+    ],
+    "notes": "Single re-entry",
+    "url": "https://www.wynnlasvegas.com/"
+  },
+  {
+    "id": "aria-001",
+    "series": "Aria",
+    "venue": "ARIA Poker Room",
+    "title": "High Roller Warm-Up",
+    "date": "2026-06-22",
+    "time": "13:00",
+    "buyIn": 2200,
+    "game": "NLH",
+    "tags": [
+      "Tougher field"
+    ],
+    "notes": "Example entry for future series support",
+    "url": "https://aria.mgmresorts.com/"
+  }
+]

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summer Poker Schedule Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Summer Poker</p>
+        <h1>Schedule Planner</h1>
+      </div>
+      <button id="viewPlanBtn" class="secondary-button pill-button">My Plan <span id="plannedCount">0</span></button>
+    </header>
+
+    <main class="layout">
+      <section class="hero card">
+        <div class="hero-copy">
+          <p class="hero-kicker">Mobile-first tournament browser</p>
+          <h2>Find the best events and map out your summer.</h2>
+          <p class="muted">
+            Filter across series, spot date conflicts, and save your targets locally on your phone.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-chip">
+            <span class="stat-label">Events shown</span>
+            <strong id="visibleCount">0</strong>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-label">Series</span>
+            <strong id="seriesCount">0</strong>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-label">Planned buy-ins</span>
+            <strong id="plannedBuyins">$0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="filters card">
+        <div class="search-row">
+          <label class="field search-field">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="WSOP Monster Stack, Wynn 600, Seniors..." />
+          </label>
+        </div>
+
+        <div class="filters-grid">
+          <label class="field">
+            <span>Series</span>
+            <select id="seriesFilter">
+              <option value="all">All series</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Game</span>
+            <select id="gameFilter">
+              <option value="all">All games</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Start date</span>
+            <input id="startDateFilter" type="date" />
+          </label>
+
+          <label class="field">
+            <span>End date</span>
+            <input id="endDateFilter" type="date" />
+          </label>
+
+          <label class="field">
+            <span>Max buy-in</span>
+            <input id="maxBuyinFilter" type="number" min="0" step="50" placeholder="Any" />
+          </label>
+
+          <label class="field">
+            <span>Sort</span>
+            <select id="sortFilter">
+              <option value="date-asc">Date: earliest first</option>
+              <option value="buyin-asc">Buy-in: low to high</option>
+              <option value="buyin-desc">Buy-in: high to low</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <button class="quick-chip active" data-quick="all">All</button>
+          <button class="quick-chip" data-quick="weekend">Weekends</button>
+          <button class="quick-chip" data-quick="under1000">Under $1k</button>
+          <button class="quick-chip" data-quick="planned">Planned only</button>
+          <button class="text-button" id="resetFiltersBtn" type="button">Reset filters</button>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <section class="events-panel">
+          <div id="emptyState" class="card empty-state hidden">
+            <h3>No events match these filters.</h3>
+            <p>Try widening the date range, clearing search, or raising the buy-in cap.</p>
+          </div>
+
+          <div id="eventsContainer" class="events-list"></div>
+        </section>
+
+        <aside id="planPanel" class="plan-panel card">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Saved locally</p>
+              <h3>My summer plan</h3>
+            </div>
+            <button id="clearPlanBtn" class="text-button" type="button">Clear</button>
+          </div>
+
+          <div class="plan-summary">
+            <div>
+              <span>Events</span>
+              <strong id="planEventCount">0</strong>
+            </div>
+            <div>
+              <span>Total buy-ins</span>
+              <strong id="planTotalBuyins">$0</strong>
+            </div>
+            <div>
+              <span>Potential conflicts</span>
+              <strong id="conflictCount">0</strong>
+            </div>
+          </div>
+
+          <div id="planConflicts" class="conflicts hidden"></div>
+          <div id="planList" class="plan-list"></div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <template id="eventCardTemplate">
+    <article class="event-card card">
+      <div class="event-topline">
+        <span class="series-badge"></span>
+        <span class="venue-line"></span>
+      </div>
+      <h3 class="event-title"></h3>
+      <div class="event-meta"></div>
+      <div class="event-tags"></div>
+      <div class="event-bottom">
+        <div class="event-buyin"></div>
+        <button class="primary-button plan-toggle" type="button"></button>
+      </div>
+    </article>
+  </template>
+
+  <template id="planItemTemplate">
+    <article class="plan-item">
+      <div>
+        <h4 class="plan-item-title"></h4>
+        <p class="plan-item-meta"></p>
+      </div>
+      <button class="icon-button remove-plan" type="button" aria-label="Remove from plan">×</button>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
